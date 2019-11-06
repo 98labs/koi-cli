@@ -3,7 +3,6 @@
 ### A simple CLI made to generate base files and migration files.
 ### Must be used with 'koa-typescript-api-v2'
  - By: 98Labs, Inc 
- - Repo: https://code.98labs.com/koi/koi-cli.git
  -----------------------------------------------------------------
 ## Commands:
   
