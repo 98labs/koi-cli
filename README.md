@@ -234,5 +234,5 @@ export class UserTransformer extends TransformableObjectAbstract {
 
 ## License:
 - MIT
-- Copyright 2019 © 98Labs, Inc```
+- Copyright 2019 © 98Labs, Inc
  -----------------------------------------------------------------
