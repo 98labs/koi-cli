@@ -12,7 +12,7 @@ console.log(
     '\n A simple CLI made to generate base files and migration files',
     '\n Must be used with koa-typescript-api-v2 (https://code.98labs.com/boilerplates/koa-typescript-api-v2.git)',
     '\n By: 98Labs, Inc',
-    '\n Repo: https://code.98labs.com/koi/koi-cli.git'
+    '\n Repo: https://github.com/98labs/koi-cli.git'
   ),
   chalk.white(
     '\n -----------------------------------------------------------------',
