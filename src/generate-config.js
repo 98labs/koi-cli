@@ -9,7 +9,7 @@ fs.writeFileSync(`${__dirname}/../../../src/db/config/${tableName}.json`,
 `{
     "schema": "", 
     "table": {
-        "tableName": "${tableName || 'public'}",
+        "tableName": "${tableName}",
         "attributes" :{
             "id": {
                 "require": true,
