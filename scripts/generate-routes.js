@@ -20,5 +20,5 @@ route.post('/', ${fileName}Ctrl.add);
 route.delete('/:id', ${fileName}Ctrl.delete);
 
 export { route as ${fileName}Route };
-`
+`,  {recursive: true}
 )

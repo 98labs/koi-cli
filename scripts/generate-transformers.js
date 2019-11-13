@@ -19,5 +19,5 @@ export class ${className}Transformer extends TransformableObjectAbstract {
     'mobile',
   ];
 }
-`
+`,  {recursive: true}
 )

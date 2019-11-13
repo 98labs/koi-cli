@@ -70,5 +70,5 @@ export class ${className} extends BaseModel implements I${className} {
   public static initAssociations(): void {
   }
 }
-`
+`,  {recursive: true}
 )

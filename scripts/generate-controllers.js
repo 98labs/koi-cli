@@ -27,5 +27,5 @@ export class ${className}Controller extends BaseBreadController {
     this.hasDelete = true;
   }
 }
-`
+`,  {recursive: true}
 )

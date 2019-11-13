@@ -15,5 +15,5 @@ export class ${className}Service extends BaseDbService {
     super(${className});
   }
 }
-`
+`,  {recursive: true}
 )

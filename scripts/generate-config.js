@@ -3,9 +3,9 @@
 const fs = require('fs')
 const tableName = process.argv[2];
 
-fs.mkdirSync(`./src/db/config`, {recursive: true});
+fs.mkdirSync(`${__dirname}/../../../src/db/config`, {recursive: true});
 
-fs.writeFileSync(`./src/db/config/${tableName}.json`,
+fs.writeFileSync(`${__dirname}/../../../src/db/config/${tableName}.json`,
 `{
     "schema": "", 
     "table": {

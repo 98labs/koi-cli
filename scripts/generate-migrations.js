@@ -2,16 +2,15 @@
 
 const fs = require('fs')
 
-fs.mkdirSync('./src/db', {recursive: true});
-fs.mkdirSync('./src/db/seeders', {recursive: true});
-fs.mkdirSync('./src/db/migrations', {recursive: true});
-fs.mkdirSync('./src/models', {recursive: true});
+fs.mkdirSync(`${__dirname}/../../../src/db`, {recursive: true});
+fs.mkdirSync(`${__dirname}/../../../src/db/seeders`, {recursive: true});
+fs.mkdirSync(`${__dirname}/../../../src/db/migrations`, {recursive: true});
+fs.mkdirSync(`${__dirname}/../../../src/models`, {recursive: true});
 
-// const tableProps = fs.readFileSync(`${__dirname}/../../..${jsonFile}`, `utf-8`, (err, buff) => {
-const migrationFiles = fs.readdirSync(`./src/db/config`, `utf-8`)
+const migrationFiles = fs.readdirSync(`${__dirname}/../../../src/db/config`, `utf-8`)
 
 const tableProps = migrationFiles.map((jsonFile) => {
- return fs.readFileSync(`./src/db/config/${jsonFile}`, `utf-8`, (err, buff) => {
+ return fs.readFileSync(`${__dirname}/../../../src/db/config/${jsonFile}`, `utf-8`, (err, buff) => {
     if (err) {
       console.log(err)
       return err;
@@ -36,9 +35,8 @@ for (props in properties.table.attributes) {
           }
     `)            
 }
-// fs.writeFileSync(`${__dirname}/../../../src/db/migrations/create-migration-${properties.tableName}.js`,
 
-fs.writeFileSync(`${__dirname}/../src/db/migrations/create-migration-${properties.table.tableName}.js`,
+fs.writeFileSync(`${__dirname}/../../../src/db/migrations/create-migration-${properties.table.tableName}.js`,
   `const tableConfig = {
     schema: '${properties.table.schema || 'public'}',
     tableName: '${properties.table.tableName}'
