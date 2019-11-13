@@ -1,11 +1,12 @@
 {
   "name": "koi-cli",
-  "version": "1.2.6",
+  "version": "1.2.8",
+  "private": true,
   "description": "A simple CLI made to generate base files and migration files. Must be used with 'koa-typescript-api-v2",
-  "main": "index.js",
+  "main": "cli.js",
   "bin": {
     "koi-cli": "./cli.js",
-    "koi-generate:base": "./index.js",
+    "koi-generate:base": "./scripts/generate-base.sh",
     "koi-generate:migration": "./scripts/generate-migrations.sh",
     "koi-generate:config": "./scripts/generate-config.sh"
   },
