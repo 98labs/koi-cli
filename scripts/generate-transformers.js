@@ -3,8 +3,7 @@ const fileName = process.argv[2];
 const className = process.argv[2].charAt(0).toUpperCase() + process.argv[2].slice(1);
 
 fs.writeFileSync(`${__dirname}/../../../src/transformers/${fileName}Transformer.ts`, 
-`
-import { TransformableObjectAbstract } from './transformableObjectAbstract';
+`import { TransformableObjectAbstract } from './transformableObjectAbstract';
 
 export class ${className}Transformer extends TransformableObjectAbstract {
 

@@ -3,8 +3,7 @@ const fileName = process.argv[2];
 const className = process.argv[2].charAt(0).toUpperCase() + process.argv[2].slice(1);
 
 fs.writeFileSync(`${__dirname}/../../../src/routes/v1/${fileName}.ts`, 
-`
-import * as Router from 'koa-router';
+`import * as Router from 'koa-router';
 import { BaseContext } from 'koa';
 import { ${className}Controller } from '../../controllers/v1';
 import { authService } from './../../services';

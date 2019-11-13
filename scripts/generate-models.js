@@ -27,8 +27,7 @@ const readFile = fs.readFileSync(`${__dirname}/../../../src/db/migrations/${filt
 const trimmedContent = readFile.split('tableProps = {')[1].split('};')[0]
 
 fs.writeFileSync(`${__dirname}/../../../src/models/core/${fileName}.ts`, 
-`
-import {
+`import {
     Model,
     DataTypes,
     BuildOptions,

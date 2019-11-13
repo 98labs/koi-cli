@@ -3,8 +3,7 @@ const fileName = process.argv[2];
 const className = process.argv[2].charAt(0).toUpperCase() + process.argv[2].slice(1);
 
 fs.writeFileSync(`${__dirname}/../../../src/controllers/v1/${fileName}Controller.ts`, 
-`
-iimport { Context } from 'koa';
+`import { Context } from 'koa';
 import { ICustomAppContext } from './../../typings';
 import { ${className} } from './../../models/core';
 import { BaseBreadController } from '../baseBreadController';
