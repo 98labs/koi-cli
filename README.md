@@ -4,7 +4,7 @@
  -----------------------------------------------------------------
 ## Prerequisite: 
 Clone the Koi project here: 
- - https://code.98labs.com/boilerplates/koa-typescript-api-v2.git
+ - https://github.com/98labs/koi.git
  -----------------------------------------------------------------
 ## Install:
 ```bash
@@ -13,12 +13,56 @@ npm i -g koi-cli
 ```
  -----------------------------------------------------------------
 ## Usage:
-#### 1. Run to generate migration file for sequelize to use.
+
+#### 1. Run to generate JSON file for structuring table attributes.
 ```bash
-   koi-generate:migration $fileName
-     example: koi-generate:migration user
+   koi-generate:config $tableName
+      example: koi-generate:config user
 ```
-#### 2. Modify the migration file that just have been created.
+
+#### 2. Modify the JSON file in /src/db/config.
+- Config:
+```bash
+# /src/db/config/user.json
+# Sample table configuration only
+
+{
+    "schema": "public", 
+    "table": {
+        "tableName": "user",
+        "attributes" :{
+            "id": {
+              "primaryKey": true,
+              "dataType": "INTEGER", # Or "integer"
+              "allowNull": false,
+            },
+            "name": {
+              "dataType": "STRING",
+              "allowNull": false,
+            },
+            "password": {
+              "dataType": "STRING",
+              "allowNull": false,
+            },
+            "createdAt": {
+              "dataType": "DATE",
+              "allowNull": false,
+            },
+            "updatedAt": {
+              "dataType": "DATE",
+              "allowNull": false,
+            },
+        }
+    }
+}
+
+```
+#### 3. Run to generate migration files from config/ .json for sequelize to use.
+```bash
+   koi-generate:migration
+     example: koi-generate:migration
+```
+#### 4. Modify the migration file that just have been created.
 - Migrations:
 ```bash
 # /src/db/migrations/create-migration-user.js
@@ -30,7 +74,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     const DataTypes = Sequelize;
 
-    return queryInterface.createSchema("core")
+    return queryInterface.createSchema("public")
     .then(() => {
       const tableConfig = {
         schema: "public",
@@ -77,12 +121,12 @@ module.exports = {
   }
 };
 ```
-#### 3. Run to generate base files (models, controllers, routes, transformers and services).
+#### 5. Run to generate base files (models, controllers, routes, transformers and services).
 ```bash
-   koi-generate:base $fileName
+   koi-generate:base $tableName
      example: koi-generate:base user 
 ```
-#### 4. Modify the recently created base files.
+#### 6. Modify the recently created base files.
 - Models: 
 ```bash
 # /src/models/user.ts

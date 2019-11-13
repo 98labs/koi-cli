@@ -46,7 +46,7 @@ export class ${className} extends BaseModel implements I${className} {
   public id?: number;
 
   static getAttributes(): ModelAttributes {
-    return {${trimmedContent}};
+    return {${trimmedContent || undefined}};
   }
 
   public static getValidationRules(): any {

@@ -18,11 +18,14 @@ console.log(
     '\n -----------------------------------------------------------------',
     '\n',
     '\n Commands:',
-    '\n   - koi-generate:base <fileName>   Run to generate base files (models, controllers, routes, transformers, services)',
+    '\n   - koi-generate:config <tableName>   Run to generate json file for structuring table attributes',
+    '\n                                       example: koi-generate:config user',
+    '\n',
+    '\n   - koi-generate:base <tableName>   Run to generate base files (models, controllers, routes, transformers, services)',
     '\n                                    example: koi-generate:base user',
     '\n',
-    '\n   - koi-generate:migration <fileName>   Run to generate migration file for sequelize to use',
-    '\n                                         example: koi-generate:migration user',
+    '\n   - koi-generate:migration              Run to generate migration files from config/ .json for sequelize to use',
+    '\n                                         example: koi-generate:migration',
     '\n',
     '\n -----------------------------------------------------------------'
     )
