@@ -20,6 +20,3 @@ fs.writeFileSync(`${__dirname}/../../../src/db/config/${tableName}.json`,
 }
 `
 )
-
-console.log(`Success: ${tableName}.json`); 
-

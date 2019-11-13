@@ -61,7 +61,7 @@ fs.writeFileSync(`${__dirname}/../../../src/db/migrations/create-migration-${pro
   }
 };
   `, {recursive: true})  
-  console.log(`Success: create-migration-${properties.table.tableName}.js`);    
+  console.log(`Created: create-migration-${properties.table.tableName}.js`);    
 })
 
 
