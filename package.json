@@ -4,6 +4,7 @@
   "description": "A simple CLI made to generate base files and migration files. Must be used with 'koa-typescript-api-v2",
   "main": "cli.js",
   "bin": {
+    "koi": "./bin/koi",
     "koi-cli": "./cli.js",
     "koi-generate:base": "./scripts/generate-base.sh",
     "koi-generate:migration": "./scripts/generate-migrations.sh",
