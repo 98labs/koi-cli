@@ -4,6 +4,7 @@ const generateCommands = {
     'route' : './route',
     'model' : './model',
     'transformer' : './transformer',
+    'all' : './all'
 }
 
 const reqCommand = process.argv[3]
