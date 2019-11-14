@@ -2,6 +2,7 @@ const generateCommands = {
     'controller' : './controller',
     'service' : './service',
     'route' : './route',
+    'model' : './model',
 }
 
 const reqCommand = process.argv[3]
