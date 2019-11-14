@@ -3,6 +3,7 @@ const generateCommands = {
     'service' : './service',
     'route' : './route',
     'model' : './model',
+    'transformer' : './transformer',
 }
 
 const reqCommand = process.argv[3]
