@@ -1,6 +1,6 @@
 {
   "name": "koi-cli",
-  "version": "1.2.9",
+  "version": "1.2.14",
   "description": "A simple CLI made to generate base files and migration files. Must be used with 'koa-typescript-api-v2",
   "main": "cli.js",
   "bin": {

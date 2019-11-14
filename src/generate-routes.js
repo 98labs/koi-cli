@@ -1,8 +1,12 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const fileName = process.argv[2];
 const className = process.argv[2].charAt(0).toUpperCase() + process.argv[2].slice(1);
+const currentDir = process.cwd()
+fs.mkdirSync(`${currentDir}/src/routes/v1`, {recursive: true})
 
-fs.writeFileSync(`${__dirname}/../../../src/routes/v1/${fileName}.ts`, 
+fs.writeFileSync(`${currentDir}/src/routes/v1/${fileName}.ts`, 
 `import * as Router from 'koa-router';
 import { BaseContext } from 'koa';
 import { ${className}Controller } from '../../controllers/v1';

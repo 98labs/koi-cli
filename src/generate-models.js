@@ -1,9 +1,13 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const fileName = process.argv[2];
 const className = process.argv[2].charAt(0).toUpperCase() + process.argv[2].slice(1);
+const currentDir = process.cwd()
+fs.mkdirSync(`${currentDir}/src/models/core`, {recursive: true});
 
 const regexFile = new RegExp(fileName)
-const files = fs.readdirSync(`${__dirname}/../../../src/db/migrations`,`utf-8`, (err, buff) => {
+const files = fs.readdirSync(`${currentDir}/src/db/migrations`,`utf-8`, (err, buff) => {
     if (err) {
         console.error(err)
         return err;
@@ -16,7 +20,7 @@ const filteredFilename = files.filter((file) => {
     return file.match(regexFile);
 });
 
-const readFile = fs.readFileSync(`${__dirname}/../../../src/db/migrations/${filteredFilename[0]}`, 'utf-8', (err, buff) => {
+const readFile = fs.readFileSync(`${currentDir}/src/db/migrations/${filteredFilename[0]}`, 'utf-8', (err, buff) => {
   if (err) {
     console.error(err)
     return err;
@@ -26,7 +30,7 @@ const readFile = fs.readFileSync(`${__dirname}/../../../src/db/migrations/${filt
 });
 const trimmedContent = readFile.split('tableProps = {')[1].split('};')[0]
 
-fs.writeFileSync(`${__dirname}/../../../src/models/core/${fileName}.ts`, 
+fs.writeFileSync(`${currentDir}/src/models/core/${fileName}.ts`, 
 `import {
     Model,
     DataTypes,

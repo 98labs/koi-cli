@@ -1,8 +1,12 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const fileName = process.argv[2];
 const className = process.argv[2].charAt(0).toUpperCase() + process.argv[2].slice(1);
+const currentDir = process.cwd()
+fs.mkdirSync(`${currentDir}/src/controllers/v1`, {recursive: true})
 
-fs.writeFileSync(`${__dirname}/../../../src/controllers/v1/${fileName}Controller.ts`, 
+fs.writeFileSync(`${currentDir}/src/controllers/v1/${fileName}Controller.ts`, 
 `import { Context } from 'koa';
 import { ICustomAppContext } from './../../typings';
 import { ${className} } from './../../models/core';
