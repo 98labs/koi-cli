@@ -1,0 +1,30 @@
+{
+  "name": "koi-cli",
+  "version": "1.2.14",
+  "description": "A simple CLI made to generate base files and migration files. Must be used with 'koa-typescript-api-v2",
+  "main": "cli.js",
+  "bin": {
+    "koi-cli": "./cli.js",
+    "koi-generate:base": "./scripts/generate-base.sh",
+    "koi-generate:migration": "./scripts/generate-migrations.sh",
+    "koi-generate:config": "./scripts/generate-config.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/98labs/koi-cli.git"
+  },
+  "keywords": [
+    "koi",
+    "cli",
+    "koi-cli"
+  ],
+  "author": "98Labs, Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "chalk": "^2.4.2",
+    "clear": "^0.1.0",
+    "figlet": "^1.2.4",
+    "shelljs": "^0.8.3"
+  }
+}
