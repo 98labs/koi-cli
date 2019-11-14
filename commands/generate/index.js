@@ -1,5 +1,6 @@
 const generateCommands = {
     'controller' : './controller',
+    'service' : './service',
 }
 
 const reqCommand = process.argv[3]
