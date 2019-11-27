@@ -46,7 +46,7 @@ fs.writeFileSync(`${currentDir}/src/db/migrations/create-migration-${properties.
       const DataTypes = Sequelize;
         const tableProps = {
           ${tablePropArray}
-        }
+        };
         return queryInterface.transaction((t) => { 
           return queryInterface.createTable(tableConfig, tableProps, 
             {transaction: t});
