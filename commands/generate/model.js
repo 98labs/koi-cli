@@ -1,4 +1,5 @@
 const { writeFileSync, appendFileSync, readdirSync, readFileSync } = require('fs');
+const pluralize = require('pluralize')
 
 let dir = process.argv[4].split('/')
 const fileName = dir[dir.length - 1];
@@ -71,8 +72,8 @@ export class ${className} extends BaseModel implements I${className} {
   static getTableNameConfig(): ITableConfig {
     return {
       // Write table name here
-      schema: '',
-      tableName: '',
+      schema: '${dir}',
+      tableName: '${pluralize(fileName)}',
     };
   }
 

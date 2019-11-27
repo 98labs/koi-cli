@@ -1,4 +1,4 @@
-const { renameSync, writeFile } = require('fs');
+const { renameSync, writeFileSync } = require('fs');
 const { exec } = require('shelljs')
 const { package } = require('./package')
 const { prompt } = require('inquirer');
@@ -32,33 +32,45 @@ async function run() {
        }
    }
 
-   return exec('git clone --branch '+ branch + ' ' + repositoryPath, (error) => {
-        if(error !== 0) process.exit()
+   return exec('git clone --branch '+ branch + ' ' + repositoryPath, async (error) => {
+        if(error !== 0) process.exit();
         else {
-            removeGit()
-            renameDir()
-            createEnvFile()
+            await renameDir()
+            await fixedPackageJson()
+            await removeGit()
+            await installModules()
+            await createEnvFile()
         }
     })
 }
 
-function createEnvFile() {
-    return writeFile(process.cwd() + '/' + answers.projectName + '/.env', env, 
-    (error) => error )
+async function createEnvFile() {
+    return writeFileSync(process.cwd() + '/' + answers.projectName + '/.env', env, 
+    (error) =>  errorHandler(error))
 }
 
-function renameDir() {
-    return renameSync(process.cwd() + '/koi' , process.cwd() + '/' + answers.projectName);
+async function renameDir() {
+    return renameSync(process.cwd() + '/koi' , process.cwd() + '/' + answers.projectName,
+    (error) =>  errorHandler(error));
 }
 
-function installModules() {
+async function installModules() {
     return exec('cd ' + process.cwd() + '/' + answers.projectName + '&& npm install',
-    (error) => { error !== 0 ? process.exit() : console.log('success!') })
+    (error) =>  errorHandler(error))
 }
 
-function removeGit() {
-    return writeFile(process.cwd() + '/' + answers.projectName + '/package.json', package, 
-    (error) => error !== null ? process.exit(): installModules())
+async function fixedPackageJson() {
+    return writeFileSync(process.cwd() + '/' + answers.projectName + '/package.json', package, 
+    (error) =>  errorHandler(error))
+}
+
+async function removeGit() {
+    return exec('cd ' + process.cwd() + '/' + answers.projectName + '&& rm -rf .git', 
+    (error) =>  errorHandler(error))
+}
+
+function errorHandler(error) {
+    if(error) process.exit()
 }
  
 run();

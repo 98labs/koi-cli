@@ -55,9 +55,15 @@ function write() {
     );
 }
 
-function run() {
+async function run() {
     write()
     updateIndex()
 }
 
-run()
+run().then(() => {
+    console.log('\x1b[34mGET .../v1/' + fileName + ' is successfully created!')
+    console.log('\x1b[34mGET .../v1/' + fileName + '/:id is successfully created!')
+    console.log('\x1b[34mPATCH .../v1/' + fileName + '/:id is successfully created!')
+    console.log('\x1b[34mPOST .../v1/' + fileName + '/ is successfully created!')
+    console.log('\x1b[34mDELETE .../v1/' + fileName + '/ is successfully created!')
+})
