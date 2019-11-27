@@ -1,0 +1,23 @@
+# API keys and secrets
+.env
+
+# Editors
+.idea
+*.iml
+.vscode
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Logging files
+*.log
+logs/**/*
+
+# Test Coverage (Istanbul)
+.nyc_output/**/*
+coverage/**/*
+
+tslint.json
+tsconfig.json
+
