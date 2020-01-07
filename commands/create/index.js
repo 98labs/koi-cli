@@ -5,7 +5,7 @@ const { prompt } = require('inquirer');
 const header = require('../../lib/header')
 const questions = require('./questions')
 const env = require('./env')
-
+const koiJson = require('./koiJson')
 let answers = {
     projectName: process.argv[3],
     version: 'v2',
@@ -35,11 +35,13 @@ async function run() {
    return exec('git clone --branch '+ branch + ' ' + repositoryPath, async (error) => {
         if(error !== 0) process.exit();
         else {
+            const json = await koiJson.koiIdentifier(answers, branch, repositoryPath)
             await renameDir()
             await fixedPackageJson()
             await removeGit()
             await installModules()
             await createEnvFile()
+            await writeKoiJson(json)
         }
     })
 }
@@ -66,6 +68,11 @@ async function fixedPackageJson() {
 
 async function removeGit() {
     return exec('cd ' + process.cwd() + '/' + answers.projectName + '&& rm -rf .git', 
+    (error) =>  errorHandler(error))
+}
+
+async function writeKoiJson(json) {
+    return writeFileSync(process.cwd() + '/' + answers.projectName + '/koi.json', json, 
     (error) =>  errorHandler(error))
 }
 

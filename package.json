@@ -5,10 +5,7 @@
   "main": "cli.js",
   "bin": {
     "koi": "./bin/koi",
-    "koi-cli": "./cli.js",
-    "koi-generate:base": "./scripts/generate-base.sh",
-    "koi-generate:migration": "./scripts/generate-migrations.sh",
-    "koi-generate:config": "./scripts/generate-config.sh"
+    "koi-cli": "./cli.js"
   },
   "repository": {
     "type": "git",
@@ -29,8 +26,5 @@
     "inquirer": "^7.0.0",
     "pluralize": "^8.0.0",
     "shelljs": "^0.8.3"
-  },
-  "engines": {
-    "node": ">=10.15.1"
   }
 }
